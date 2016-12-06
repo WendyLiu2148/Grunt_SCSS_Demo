@@ -1,0 +1,48 @@
+#span2 {
+  color: red;
+}
+
+#div1 {
+  border-top: 1px solid red;
+  border-bottom: 1px solid green;
+}
+#div1 span:nth-child(2) {
+  color: blue;
+  font-size: 30px;
+}
+
+#table tr th:nth-child(1) {
+  color: red;
+}
+#table tr th:nth-child(2) {
+  color: green;
+}
+
+#button-div > button {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#generate-select h1, #generate-select h2 {
+  color: green;
+}
+#generate-select h2 {
+  background-color: red;
+}
+
+#father-select a {
+  font-size: 10px;
+  color: red;
+  text-decoration: none;
+}
+#father-select a:hover {
+  text-decoration: underline;
+}
+
+#placeholder-select span {
+  color: blue;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

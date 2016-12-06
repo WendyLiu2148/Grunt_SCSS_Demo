@@ -1,0 +1,105 @@
+为什么要用scss，因为相对于css它扩展了下面部分。
+
+1.css3特殊的选择器 : p:nth-child(2)  定位到p元素且是p元素　父亲元素的　第二个孩子　，同时满足才会渲染（冒号后面不能有空格）
+
+#table {　　　　／／对于table的嵌套，先要定位到具体table,再在table里面进行嵌套，否则不起作用（如：在#table后面加　tr是不起作用的）
+	tr {
+		th:nth-child(1) {
+			color: red;
+		}
+
+		th:nth-child(2) {
+			color: green;
+		}
+	}
+}
+
+scss是css语法的扩展，主要体现在下面几个方面：
+１．变量
+　　１＞变量　$fontsize:           10px;　//下面直接可以用$fontsize
+   ２>变量值还可以做加法：　　　　　font-size: $fontsize + 20px;　　／／显示效果
+２．嵌套
+　　１>选择器嵌套　　　如：　tr { th { color: red; }}
+    2>属性嵌套　　　　border: {
+			top: 1px solid red;
+	  		bottom: 1px solid green;
+		　　　}    
+
+３．混合　（三大特性，定义一整块SCSS代码，定义参数，设置默认值）
+
+@mixin border-radius($amount: 5px) {　／／定义　‘border-radius’ 类似于函数，‘$amount’是传入的参数，默认值是5
+	-moz-border-radius: $amount;
+	-webkit-border-radius: $amount;
+	border-radius: $amount;
+}
+
+#button-div > button {
+	@include border-radius(); //调用该函数，可传参，可以不传参（有默认值）
+}
+
+４．选择器继承(一个选择器可以使用另一个选择器的样式　extend)
+#generate-select {
+	h1 {
+		color: green;
+	}
+
+	h2 {
+		background-color: red;
+		@extend h1;  //h2就可以渲染h1的所有样式
+	}
+}
+
+５．引用父选择器　（应用父选择器的样式）
+a {
+	font-size: $fontsize;
+	color: red;
+	text-decoration: none;
+	&:hover {　　／／&表示父选择器　a   ':hover'是伪类
+		text-decoration: underline;
+	}
+}
+
+５．占位符选择器　（其实就是将一段css起别名，在下面引用这个别名即可）
+#placeholder-select {
+	%placeholder {
+		color: blue;
+		font-size: 20px;
+	}
+
+	span {
+		@extend %placeholder;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

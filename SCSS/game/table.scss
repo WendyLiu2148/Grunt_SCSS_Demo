@@ -1,0 +1,69 @@
+$fontsize:           10px;
+$amount:             10px;
+
+#div1 {
+	span:nth-child(2) {
+		color: blue;
+		font-size: $fontsize + 20px;
+	}
+
+	border: {
+		top: 1px solid red;
+	  	bottom: 1px solid green;
+	}
+}
+
+#table {
+	tr {
+		th:nth-child(1) {
+			color: red;
+		}
+
+		th:nth-child(2) {
+			color: green;
+		}
+	}
+}
+
+@mixin border-radius($amount: 5px) {
+	-moz-border-radius: $amount;
+	-webkit-border-radius: $amount;
+	border-radius: $amount;
+}
+
+#button-div > button {
+	@include border-radius($amount);
+}
+
+#generate-select {
+	h1 {
+		color: green;
+	}
+
+	h2 {
+		background-color: red;
+		@extend h1;
+	}
+}
+
+#father-select {
+	a {
+		font-size: $fontsize;
+		color: red;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+#placeholder-select {
+	%placeholder {
+		color: blue;
+		font-size: 20px;
+	}
+
+	span {
+		@extend %placeholder;
+	}
+}
